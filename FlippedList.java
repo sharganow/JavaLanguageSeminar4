@@ -1,3 +1,7 @@
+/*Пусть дан LinkedList с несколькими элементами.
+        Реализуйте метод, который вернет “перевернутый” список.
+        Постараться не обращаться к листу по индексам.*/
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
@@ -5,6 +9,11 @@ import java.util.Stack;
 
 public class FlippedList {
     static int getRandomInt(int start, int stop){
+        if(start > stop) {
+            int temp = stop;
+            stop = start;
+            start = temp;
+        }
         double returnInt;
         double equaliser = 2.147483648e+9;
         Random rnd = new Random();
@@ -38,7 +47,7 @@ public class FlippedList {
     }
 
     public static void main(String[] args){
-        LinkedList<StringBuilder> originList = getFilledList(0, 100, 5);
+        LinkedList<StringBuilder> originList = getFilledList(0, 9, 5);
         LinkedList<StringBuilder> newFlippedList = getFlippedList(originList);
         System.out.println(originList);
         System.out.println(newFlippedList);
